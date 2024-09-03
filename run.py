@@ -15,10 +15,10 @@ def create_samples(n, device):
     return tensor
 
 def filter_samples(tensor):
-    # Check if the first 99 rows along the 100 dim within the 3 dim at index 0 contain 99 zeros
+    # Check if the first 99 rows along the 100 dim at index 0 of the 3 dim contain 99 zeros
     condition = (tensor[:, :99, 0] == 0).sum(dim=1) == 99
 
-    # Filter out the tensors that meet the condition
+    # Filter out the tensors that do not meet the condition
     filtered_tensor = tensor[condition]
 
     return filtered_tensor
