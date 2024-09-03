@@ -9,8 +9,8 @@ def create_samples(n, device):
     tensor[torch.arange(n).unsqueeze(1), indices, torch.arange(3)] = 1
 
     # Step 3: Randomly zero out one row along the size 3 dim
-    zero_indices = torch.randint(0, 100, (n,), device = device)
-    tensor[torch.arange(n), zero_indices, :] = 0
+    zero_indices = torch.randint(0, 3, (n,), device = device)
+    tensor[torch.arange(n), :, zero_indices] = 0
 
     return tensor
 
